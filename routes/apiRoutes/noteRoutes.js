@@ -1,7 +1,10 @@
 const router = require('express').Router()
 
+const fs = require("fs");
+const { v4: uuidv4 } = require("uuid");
+
 // serves up db.json upon HTTP GET to /api/notes
-app.get("/api/notes", (req, res) => {
+router.get("/notes", (req, res) => {
     fs.readFile("./db/db.json", (err, data) => {
         if (err) {
             console.log(err);
@@ -12,7 +15,7 @@ app.get("/api/notes", (req, res) => {
 });
 
 // reads, adds, and rewrites db.json on HTTP POST
-app.post("/api/notes", (req, res) => {
+router.post("/notes", (req, res) => {
     fs.readFile("./db/db.json", (err, data) => {
         if (err) {
             console.log(err);
@@ -35,7 +38,7 @@ app.post("/api/notes", (req, res) => {
 });
 
 // deletes individual notes based on UUID-generated ID #
-app.delete("/api/notes/:id", (req, res) =>{
+router.delete("/notes/:id", (req, res) =>{
     fs.readFile("./db/db.json", (err, data) => {
         if (err) {
             console.log(err);
@@ -54,3 +57,5 @@ app.delete("/api/notes/:id", (req, res) =>{
         };
     });
 });
+
+module.exports = router;
