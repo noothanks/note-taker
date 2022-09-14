@@ -47,4 +47,4 @@ This project is not currently open for contribution. If you have any questions o
 - [@noothanks](https://www.github.com/noothanks)
 
 ##Image
-!{ScreenShot](./screenshot.png)
+![ScreenShot](./screenshot.png)
